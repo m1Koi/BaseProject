@@ -12,17 +12,31 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:gravity="center"
         android:id="@+id/tvShow"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:gravity="center"
         android:text="show" />
 
     <TextView
-        android:gravity="center"
         android:id="@+id/tvHide"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:gravity="center"
         android:text="hide" />
+
+    <TextView
+        android:id="@+id/tvToast"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="toast" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tvJump"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="jump" />
 
 </LinearLayout>

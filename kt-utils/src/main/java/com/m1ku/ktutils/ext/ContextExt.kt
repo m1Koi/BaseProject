@@ -48,6 +48,7 @@ fun Context.getVersionCode(): Int {
 /**
  *  显示吐司
  */
+
 var mToast: Toast? = null
 
 fun Context.showToast(msg: String, duration: Int = Toast.LENGTH_LONG) {
@@ -55,9 +56,10 @@ fun Context.showToast(msg: String, duration: Int = Toast.LENGTH_LONG) {
     if (mToast == null) {
         mToast = Toast.makeText(this, msg, duration)
     } else {
-        mToast!!.setText(msg)
+        mToast?.duration = duration
+        mToast?.setText(msg)
     }
-    mToast!!.show()
+    mToast?.show()
 }
 
 /**

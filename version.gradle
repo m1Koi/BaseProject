@@ -1,0 +1,71 @@
+project.ext {
+
+    //android
+    def androidPluginVersion = "3.1.2"
+    _android = [
+            plugin           : "com.android.tools.build:gradle:$androidPluginVersion",
+
+            compileSdkVersion: 27,
+            buildToolsVersion: '27.0.2',
+
+            minSdkVersion    : 19,
+            targetSdkVersion : 27,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    //support
+    def supportLibraryVersion = _android.buildToolsVersion
+    def constraintVersion = "1.1.0"
+    support = [
+            drawable    : "com.android.support:support-vector-drawable:$supportLibraryVersion",
+            support_v4  : "com.android.support:support-v4:$supportLibraryVersion",
+            appcompat   : "com.android.support:appcompat-v7:$supportLibraryVersion",
+            recyclerview: "com.android.support:recyclerview-v7:$supportLibraryVersion",
+            design      : "com.android.support:design:$supportLibraryVersion",
+            cardview    : "com.android.support:cardview-v7:$supportLibraryVersion",
+            constraint  : "com.android.support.constraint:constraint-layout:$constraintVersion"
+    ]
+
+    //kotlin
+    def kotlinVersion = "1.2.41"
+    _kotlin = [
+            //plugins
+            kotlin_gradle_plugin     : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
+            kotlin_android_extensions: "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion",
+            // libs
+            kotlin_stdlib            : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    ]
+    //rx
+    def rxJavaVersion = "2.1.12"
+    def rxAndroidVersion = "2.0.1"
+    rx = [
+            rxjava2               : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxandroid2            : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            rxlifecycle           : "com.trello.rxlifecycle2:rxlifecycle:$rxJavaVersion",
+            rxlifecycle_android   : "com.trello.rxlifecycle2:rxlifecycle-android:$rxJavaVersion",
+            rxlifecycle_components: "com.trello.rxlifecycle2:rxlifecycle-components:$rxJavaVersion",
+
+            rxpermissions         : 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
+    ]
+
+    //net
+    def okHttp3Version = "3.9.0"
+    okhttp3 = [
+            logging_interceptor: "com.squareup.okhttp3:logging-interceptor:$okHttp3Version",
+    ]
+
+    def retrofitVersion = "2.3.0"
+    retrofit2 = [
+            retrofit       : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            adapter_rxjava2: "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            converter_gson : "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    ]
+
+    bugly = [
+            crashreport      : 'com.tencent.bugly:crashreport_upgrade:latest.release',
+            nativecrashreport: 'com.tencent.bugly:nativecrashreport:latest.release'
+    ]
+
+
+}
