@@ -1,42 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_vertical"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/etInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <!--<EditText-->
+    <!--android:id="@+id/etInput"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content" />-->
 
-    <TextView
-        android:id="@+id/tvShow"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="show" />
+    <!--<TextView-->
+    <!--android:id="@+id/tvShow"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:gravity="center"-->
+    <!--android:text="show" />-->
 
-    <TextView
-        android:id="@+id/tvHide"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="hide" />
+    <!--<TextView-->
+    <!--android:id="@+id/tvHide"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:gravity="center"-->
+    <!--android:text="hide" />-->
 
-    <TextView
-        android:id="@+id/tvToast"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="toast" />
+    <!--<TextView-->
+    <!--android:id="@+id/tvToast"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:gravity="center"-->
+    <!--android:text="toast" />-->
 
-    <TextView
-        android:gravity="center"
-        android:id="@+id/tvJump"
+    <!--<TextView-->
+    <!--android:id="@+id/tvJump"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:gravity="center"-->
+    <!--android:text="jump" />-->
+
+    <com.m1ku.baseproject.widget.TextProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="jump" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:barTextSize="13sp" />
 
 </LinearLayout>

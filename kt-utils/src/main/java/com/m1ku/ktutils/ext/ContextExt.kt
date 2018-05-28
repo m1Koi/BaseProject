@@ -5,6 +5,9 @@ import android.content.pm.PackageManager
 import android.support.annotation.ColorRes
 import android.support.v4.content.ContextCompat
 import android.widget.Toast
+import android.util.TypedValue
+
+
 
 /**
  * Author: m1Ku
@@ -69,10 +72,20 @@ fun Context.dp2px(value: Int): Int = (value * resources.displayMetrics.density).
 
 fun Context.dp2px(value: Float): Int = (value * resources.displayMetrics.density).toInt()
 
+
 /**
  * px转为dp
  */
 fun Context.px2dp(px: Int): Float = px.toFloat() / resources.displayMetrics.density
+
+/**
+ * return sp dimension value in pixels
+ * @param value sp
+ */
+fun Context.sp2px(value: Int): Int = (value * resources.displayMetrics.scaledDensity).toInt()
+
+fun Context.sp2px(value: Float): Int = (value * resources.displayMetrics.scaledDensity).toInt()
+
 
 /**
  * 获取颜色

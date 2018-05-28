@@ -13,8 +13,8 @@ class Main2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         ActivityManager.attach(this)
-        tvJump.setOnClickListener {
-            startActivity(Intent(this, Main3Activity::class.java))
-        }
+//        tvJump.setOnClickListener {
+//            startActivity(Intent(this, Main3Activity::class.java))
+//        }
     }
 }
