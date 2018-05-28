@@ -18,10 +18,15 @@ import com.m1ku.ktutils.ext.sp2px
  */
 class TextProgressBar : View {
 
-    private var mBarStartColor = Color.parseColor("#4a6cfb")
-    private var mBarEndColor = Color.parseColor("#819af2")
+    private val colorArray = intArrayOf(
+            Color.parseColor("#4a6cfb"),
+            Color.parseColor("#819af2")
+    )
+    private val positionArray = floatArrayOf(
+            0f,
+            1f
+    )
     private var mBarHeight = 8
-    private var mBarColor = Color.BLUE
     private var mTrackColor = Color.parseColor("#d6eafe")
     private var mTextColor = Color.GRAY
     private var mTextSize = 13
@@ -46,7 +51,6 @@ class TextProgressBar : View {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         val ta = context.obtainStyledAttributes(attrs, R.styleable.TextProgressBar)
         mBarHeight = ta.getDimensionPixelOffset(R.styleable.TextProgressBar_barHeight, context.dp2px(mBarHeight))
-        mBarColor = ta.getColor(R.styleable.TextProgressBar_barColor, mBarColor)
         mTrackColor = ta.getColor(R.styleable.TextProgressBar_trackColor, mTrackColor)
         mTextColor = ta.getColor(R.styleable.TextProgressBar_barTextColor, mTextColor)
         mTextSize = ta.getDimensionPixelSize(R.styleable.TextProgressBar_barTextSize, context.sp2px(mTextSize))
@@ -73,7 +77,6 @@ class TextProgressBar : View {
         }
 
         mBarPaint = Paint().apply {
-            color = mBarColor
             strokeCap = Paint.Cap.ROUND
             isAntiAlias = true
             strokeWidth = mBarHeight.toFloat()
@@ -102,19 +105,26 @@ class TextProgressBar : View {
         canvas?.drawLine((mBarHeight / 2).toFloat(), height / 2.toFloat(),
                 (width - mBarHeight / 2).toFloat(), height / 2.toFloat(), mTrackPaint)
 
+        val currentX = (mCurrentProgress / mMaxProgress) * width - mTextPaint.measureText("15")
         //为滑轨设置渐变色
         val gradient = LinearGradient(
-                
+                0f,
+                height / 2.toFloat(),
+                currentX,
+                height / 2.toFloat(),
+                colorArray,
+                positionArray,
+                Shader.TileMode.REPEAT
         )
-        val currentX = (mCurrentProgress / mMaxProgress) * width - mTextPaint.measureText("15")
+        mBarPaint.shader = gradient
         //画进度条滑轨
         canvas?.drawLine((mBarHeight / 2).toFloat(), height / 2.toFloat(),
-                currentX, height / 2.toFloat() , mBarPaint)
+                currentX, height / 2.toFloat(), mBarPaint)
 
 
         //画进度条圆点
         canvas?.drawBitmap(dotBitmap, currentX - mBarHeight / 2,
-                height / 2f - (dotBitmap.height/2), mBarPaint)
+                height / 2f - (dotBitmap.height / 2), mBarPaint)
         //画底部文字
         if (bottomText.isNotEmpty()) {
             bottomText.forEachIndexed { index, s ->
